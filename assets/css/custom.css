@@ -1,29 +1,29 @@
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-	h1 {
+	.jumbotron h1 {
 		font-size: 95px!important;
 	}
-	h2 {
+	.jumbotron h2 {
 		font-size: 50px!important;
 	}
 }
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-	h1 {
+	.jumbotron h1 {
 		font-size: 120px!important;
 	}
-	h2 {
+	.jumbotron h2 {
 		font-size: 65px!important;
 	}
 }
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-	h1 {
+	.jumbotron h1 {
 		font-size: 145px!important;
 	}
-	h2 {
+	.jumbotron h2 {
 		font-size: 85px!important;
 	}
 	nav .container {
@@ -39,6 +39,17 @@ body {
   background: -o-radial-gradient(circle, #0977b6, #0d547e); /* For Opera 11.6 to 12.0 */
   background: -moz-radial-gradient(circle, #0977b6, #0d547e); /* For Firefox 3.6 to 15 */
   background: radial-gradient(circle, #0977b6, #0d547e); /* Standard syntax */
+}
+
+h1, h2, h3 {
+	font-family: 'Exo 2', sans-serif!important;
+	font-weight: 500;
+}
+
+h1 {
+	font-size: 30px;
+	color: #ec8016;
+	margin: 10px 0 15px 0;
 }
 
 /*navbar*/
@@ -84,14 +95,12 @@ body {
 
 }
 
-h1, h2, h3 {
-	font-family: 'Exo 2', sans-serif!important;
-	font-weight: 500;
+.jumbotron h1, .jumbotron h2, .jumbotron h3 {
 	color: #cacaca!important;
 	text-shadow: 2px 2px 7px rgba(0,0,0,0.4);
 }
 
-h3 {
+.jumbotron h3 {
 	color: #cacaca!important;
 	font-size: 30px!important;
 	font-weight: 500;
@@ -99,7 +108,7 @@ h3 {
 	width: 100%;
 }
 
-h2 {
+.jumbotron h2 {
 	color: #ec8016!important;
 	font-size: 50px;
 	font-weight: 500;
@@ -107,7 +116,7 @@ h2 {
 	width: 100%;
 }
 
-h1 {
+.jumbotron h1 {
 	color: #cacaca!important;
 	font-size: 145px;
 	font-weight: 400;
@@ -146,7 +155,7 @@ h1 {
 
 /*content*/
 #content {
-	padding: 40px;
+	padding: 15px 40px 30px 40px;
 	background-color: #102A3B;
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
@@ -165,3 +174,52 @@ img#konsola {
 img#sklep {
 	margin: 0 auto 20px auto;
 }
+
+/*footer*/
+footer {
+	margin-top: 150px;
+	background-color: #102A3B;
+	padding: 20px;
+}
+
+#map {
+	background-color: #E9E5DC;
+	width: 100%;
+	height: 130px;
+}
+
+.input-group {
+	width: 100%;
+	margin-top: 25px;
+}
+
+.form-control {
+	background-color: #101F2B;
+	border: 1px solid #102A3B;
+}
+
+.form-control-no-border:focus {
+  border-color:#102A3B;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.btn-default {
+	background-color: #101F2B!important;
+	border: 1px solid #101F2B!important;
+	float: right;
+	padding: 4px 20px;
+	margin-top: 7px;
+	outline:none!important;
+	color: inherit;
+}
+
+.btn-default:hover {
+	color: #ec8016;
+}
+
+.btn-default:focus {
+	color: inherit;
+}
+

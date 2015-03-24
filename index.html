@@ -12,6 +12,7 @@
   <title>Autoradio Poznań</title>
 </head>
 <body ng-app="mainApp">
+  <!--navbar-->
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
@@ -28,7 +29,9 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+  <!--container-->
   <div class="container">
+    <!--header-->
     <header class="jumbotron">
       <div class="name">
         <h1 class="title">AUTORADIO</h1>
@@ -45,7 +48,9 @@
         </p>
       </div>
     </header>
+    <!--main section-->
     <section id="content">
+      <h1>O nas</h1>
       <div class="row">
         <div class="col-md-7">
           <p>Posiadamy liczne certyfikaty a nasi monterzy i sprzedawcy systematycznie uczestniczą w szkoleniach dotyczących aspektów specjalistycznego montażu i fachowego doradztwa w dziedzinie car-audio.</p>
@@ -58,9 +63,32 @@
       </div>
     </section>
   </div>
-
-
-
+  <!--footer-->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <h1>Dojazd</h1>
+          <div id="map"></div>
+        </div>
+        <div class="col-md-2">
+          <h1>Kontakt</h1>
+          <p>Autoradio Poznań<br>ul. Warszawska 33b<br>61-113 Poznań</p>
+          <p>+48 61 879 28 68<br>info@autoradio.poznan.pl</p>
+        </div>
+        <div class="col-md-2">
+          <h1>Godziny</h1>
+          <p>poniedziałek - piątek: 10-18<br>sobota: 10-14<br>Parking przy sklepie</p>
+        </div>
+      </div>
+      <div class="input-group">
+        <h1>Napisz do nas</h1>
+        <input type="text" class="form-control form-control-no-border" placeholder="Twój adres email">
+        <textarea class="form-control form-control-no-border" rows="5" placeholder="Twoja wiadomość"></textarea>
+        <button type="button" class="btn btn-default">WYŚLIJ</button>
+      </div>
+    </div>
+  </footer>
   <script src="./app/angular.js"></script>    
   <script src="./app/angular-ui-router.js"></script>
   <script src="./app/gmailApp.js"></script>
