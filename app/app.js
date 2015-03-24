@@ -27,4 +27,37 @@ angular.module('mainModule', ['ui.router'])
 			});
 	}])
 
+	.directive('navbar', function(){
+		// Runs during compile
+		return {
+			restrict: 'E',
+			templateUrl: 'app/views/navbar.html',
+			link: function($scope, iElm, iAttrs, controller) {
+				
+			}
+		};
+	})
+
+	.directive('header', function(){
+		// Runs during compile
+		return {
+			restrict: 'E',
+			templateUrl: 'app/views/header.html',
+			link: function($scope, iElm, iAttrs, controller) {
+				
+			}
+		};
+	})
+
+	.directive('footer', function(){
+		// Runs during compile
+		return {
+			restrict: 'E',
+			templateUrl: 'app/views/footer.html',
+			link: function($scope, iElm, iAttrs, controller) {
+				
+			}
+		};
+	});
+
 })();
