@@ -151,6 +151,7 @@ h1 {
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
+	text-align: justify;
 }
 
 #content img {
@@ -158,11 +159,9 @@ h1 {
 }
 
 img#konsola {
-	width: 590px;
-	margin-top: 20px;
+	margin: 20px auto;
 }
 
 img#sklep {
-	width: 400px;
-	margin-bottom: 20px;
+	margin: 0 auto 20px auto;
 }
