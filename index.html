@@ -12,26 +12,23 @@
   <title>Autoradio Poznań</title>
 </head>
 <body ng-app="mainApp">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="active"><a href="#">O NAS</a></li>
+          <li><a href="#">NAWIGACJA</a></li>
+          <li><a href="#">CB-RADIO</a></li>
+          <li><a href="#">MONTAŻ</a></li>
+          <li><a href="#">INNE</a></li>
+          <li><a href="#">KONTAKT</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
   <div class="container">
-
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#">O NAS</a></li>
-            <li><a href="#">NAWIGACJA</a></li>
-            <li><a href="#">CB-RADIO</a></li>
-            <li><a href="#">MONTAŻ</a></li>
-            <li><a href="#">INNE</a></li>
-            <li><a href="#">KONTAKT</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-
-
     <header class="jumbotron">
       <div class="name">
         <h1 class="title">AUTORADIO</h1>
@@ -42,12 +39,24 @@
           INFO@AUTORADIO.POZNAN.PL
         </h3>
       </div>
-      <div class="info">
+      <div id="info">
         <p>
           Zajmujemy się kompleksowym nagłaśnianiem samochodów. Prowadzimy sprzedaż, doradztwo oraz fachowy montaż sprzętu car-audio, video i cb-radio. Oprócz pełnej gamy sprzętu dostępnego u nas w tzw. cenach rynkowych, klienci mogą spotkać się w naszym sklepie z częstymi obniżkami cen towarów oraz promocjami, które są wyrazem dostosowania się firmy do zmian na rynku i potrzeb naszych klientów.
         </p>
       </div>
     </header>
+    <section id="content">
+      <div class="row">
+        <div class="col-md-7">
+          <p>Posiadamy liczne certyfikaty a nasi monterzy i sprzedawcy systematycznie uczestniczą w szkoleniach dotyczących aspektów specjalistycznego montażu i fachowego doradztwa w dziedzinie car-audio.</p>
+          <img src="assets/images/konsola.jpg" alt="konsola" id="konsola">
+        </div>
+        <div class="col-md-5">
+          <img src="assets/images/sklep.jpg" alt="sklep" id="sklep">        
+          <p>Posiadamy konsolę do ekspozycji sprzętu, dzięki czemu każdy z umieszczonych w niej odtwarzaczy można odsłuchać z dowolnym zestawem głośnikowym. Wybór odpowiadającego klientowi brzmienia jest łatwy, prosty i przyjemny :-)</p>
+        </div>
+      </div>
+    </section>
   </div>
 
 
