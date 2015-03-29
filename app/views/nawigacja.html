@@ -1,2 +1,16 @@
 <h1>Nawigacja</h1>
 <p>Oprócz sprzedaży i aktualizacji nawigacji przenośnych zajmujemy się również urządzeniami multimedialnymi z wbudowanym modułem GPS, przeznaczonymi do różnych samochodów. Montujemy je zamiast odbiorników tzw. pierwszego wyposażenia.</p>
+<div class="row">
+	<div class="col-lg-3 col-md-4 col-xs-6 thumb" ng-repeat="image in mainCtrl.images">
+		<a class="thumbnail">
+			<img ng-src="http://autoradio.poznan.pl/nawigacja/nawigacja/{{image.filename}}"/>
+		</a>
+	</div>
+</div>
+<!--
+<ul>
+  <li ng-repeat="image in mainCtrl.images">
+    <img ng-src="http://autoradio.poznan.pl/nawigacja/nawigacja/{{image.filename}}"/>
+  </li>
+</ul>
+-->

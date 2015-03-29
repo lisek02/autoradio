@@ -222,3 +222,13 @@ footer {
 .btn-default:focus {
 	color: inherit;
 }
+
+/*images*/
+.thumbnail {
+	background: transparent;
+	border: none;
+}
+
+.thumbnail img {
+	height: 140px;
+}
