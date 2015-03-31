@@ -1,5 +1,5 @@
 (function(){
-angular.module('mainModule', ['ui.router'])
+angular.module('mainModule', ['ui.router', 'imagesModule'])
 
 	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/about");
