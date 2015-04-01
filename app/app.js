@@ -27,14 +27,7 @@ angular.module('mainModule', ['ui.router', 'imagesModule'])
 			});
 	}])
 
-	.controller('mainController', ['$scope', 'galleryFactory', function($scope, galleryFactory) {
-		this.images = [];
-
-		galleryFactory.getImages("nawigacja")
-			.then(angular.bind(this, function then() {
-				this.images = galleryFactory.images;
-				console.log(this.images);
-			} ));
+	.controller('mainController', ['$scope', function($scope) {
 	}])
 
 	.directive('navbar', function(){
@@ -69,24 +62,4 @@ angular.module('mainModule', ['ui.router', 'imagesModule'])
 			}
 		};
 	})
-
-	.factory('galleryFactory', ['$http', function($http){
-		var exports = {};
-		exports.images = [];
-
-		exports.getImages = function(galleryName) {
-			return $http.get('app/'+galleryName+'Imgs.json')
-			.success(function(data) {
-				exports.images = data;
-				console.log('app/'+galleryName+'Imgs.json');
-				//console.log("Received data: ", data);
-			})
-			.error(function(data) {
-				console.log("There was an erro with loading json file");
-			});
-		};
-
-		return exports;
-	}]);
-
 })();
