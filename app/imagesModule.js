@@ -20,15 +20,14 @@ angular.module('imagesModule', [])
 	.directive('showThumbnails', function(){
 		return {
 			restrict: 'E',
-			//scope!!!
 			scope: {
-				link: '@',
+				source: '@',
 			},
 			templateUrl: 'app/views/show-thumbnails.html',
 			controller: function($scope, galleryFactory) {
 				$scope.images = [];
 
-				galleryFactory.getImages("nawigacja")
+				galleryFactory.getImages($scope.source)
 					.then(angular.bind($scope, function then() {
 						$scope.images = galleryFactory.images;
 					} ));
@@ -43,11 +42,11 @@ angular.module('imagesModule', [])
 		var exports = {};
 		exports.images = [];
 
-		exports.getImages = function(galleryName) {
-			return $http.get('app/'+galleryName+'Imgs.json')
+		exports.getImages = function(source) {
+			return $http.get(source)
 			.success(function(data) {
 				exports.images = data;
-				console.log('app/'+galleryName+'Imgs.json');
+				console.log(source);
 				//console.log("Received data: ", data);
 			})
 			.error(function(data) {
