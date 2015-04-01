@@ -4,37 +4,22 @@ angular.module('imagesModule', [])
 
 	}])
 
-	.directive('showImage', function(){
+	.directive('imageSlider', function() {
 		return {
 			restrict: 'E',
 			scope: {
-				source: '@',
+				image: '@',
+				json: '@',
 			},
-			templateUrl: 'app/views/show-image.html',
-			link: function($scope, iElm, iAttrs, controller) {
-				
-			}
-		};
-	})
-
-	.directive('showThumbnails', function(){
-		return {
-			restrict: 'E',
-			scope: {
-				source: '@',
-			},
-			templateUrl: 'app/views/show-thumbnails.html',
+			templateUrl: 'app/views/image-slider.html',
 			controller: function($scope, galleryFactory) {
 				$scope.images = [];
 
-				galleryFactory.getImages($scope.source)
+				galleryFactory.getImages($scope.json)
 					.then(angular.bind($scope, function then() {
 						$scope.images = galleryFactory.images;
 					} ));
 			},
-			link: function($scope, iElm, iAttrs, controller) {
-				
-			}
 		};
 	})
 

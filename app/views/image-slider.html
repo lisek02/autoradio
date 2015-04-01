@@ -1,0 +1,11 @@
+<div class="full-width-image no-margin">
+	<img ng-if="image" src="{{ image }}" class="img-responsive center-block">
+	<img ng-if="!image && json" src="http://autoradio.poznan.pl/nawigacja/nawigacja/{{images[0].filename}}" class="img-responsive center-block">
+</div>
+<div ng-if="json" class="row full-width-thumbnails">
+	<div class="col-lg-3 col-md-4 col-xs-6 thumb" ng-repeat="image in images">
+		<a class="thumbnail">
+			<img ng-src="http://autoradio.poznan.pl/nawigacja/nawigacja/{{image.filename}}"/>
+		</a>
+	</div>
+</div>
