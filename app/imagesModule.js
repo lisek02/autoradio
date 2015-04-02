@@ -1,25 +1,32 @@
 (function(){
 angular.module('imagesModule', [])
-	.controller('ImagesController', ['$scope', 'galleryFactory', function($scope, galleryFactory) {
-
-	}])
 
 	.directive('imageSlider', function() {
 		return {
 			restrict: 'E',
 			scope: {
-				image: '@',
+				img: '@',
 				json: '@',
 			},
 			templateUrl: 'app/views/image-slider.html',
 			controller: function($scope, galleryFactory) {
-				$scope.images = [];
+				this.imageNumber = 0;
+				this.images = [];
+
+				this.isSet = function(number) {
+					return this.imageNumber === number;
+				};
+
+				this.setImage = function(number) {
+					this.imageNumber = number;
+				};
 
 				galleryFactory.getImages($scope.json)
-					.then(angular.bind($scope, function then() {
-						$scope.images = galleryFactory.images;
+					.then(angular.bind(this, function then() {
+						this.images = galleryFactory.images;
 					} ));
 			},
+			controllerAs: "imagesCtrl"
 		};
 	})
 
