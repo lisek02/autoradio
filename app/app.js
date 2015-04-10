@@ -27,6 +27,16 @@ angular.module('mainModule', ['ui.router', 'imagesModule'])
 			});
 	}])
 
+	.run(function($rootScope) {
+		$rootScope.$on('$stateChangeSuccess',function(){
+				var $anchor = $('#content');
+				console.log("anchor ", $anchor);
+		    $("html, body").stop().animate({ 
+		    	scrollTop: $anchor.offset().top - 90
+		    }, 1000, 'easeInOutExpo');
+		})
+	})
+
 	.controller('mainController', ['$scope', function($scope) {
 	}])
 
