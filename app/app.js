@@ -3,7 +3,6 @@ angular.module('mainModule', ['ui.router', 'imagesModule'])
 
 	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("");
-
 		$stateProvider
 			.state('home', {
 				url: '/',
