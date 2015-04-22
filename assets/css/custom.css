@@ -79,6 +79,10 @@ h1 {
 	border: 0px none;
 }
 
+.cursor-pointer {
+	cursor: pointer;
+}
+
 /*header*/
 .jumbotron {
 	height: 800px;

@@ -27,10 +27,9 @@ angular.module('mainModule', ['ui.router', 'imagesModule'])
 			});
 	}])
 
-	.run(function($rootScope) {
+	.run(function($rootScope, $state) {
 		$rootScope.$on('$stateChangeSuccess',function(){
 				var $anchor = $('#content');
-				console.log("anchor ", $anchor);
 		    $("html, body").stop().animate({ 
 		    	scrollTop: $anchor.offset().top - 90
 		    }, 1000, 'easeInOutExpo');
@@ -39,6 +38,19 @@ angular.module('mainModule', ['ui.router', 'imagesModule'])
 
 	.controller('mainController', ['$scope', function($scope) {
 	}])
+
+	.directive('scrollToContact', function(){
+		return {
+			restrict: 'A',
+			link: function($scope, $element) {
+				$element.on('click', function() {
+					$("html, body").stop().animate({
+						scrollTop: $(document).height()
+					}, 1000, 'easeInOutExpo');	
+				});
+			}
+		}
+	})
 
 	.directive('navbar', function(){
 		// Runs during compile
