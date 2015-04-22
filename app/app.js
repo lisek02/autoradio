@@ -2,9 +2,13 @@
 angular.module('mainModule', ['ui.router', 'imagesModule'])
 
 	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-		$urlRouterProvider.otherwise("/about");
+		$urlRouterProvider.otherwise("/");
 
 		$stateProvider
+			.state('home', {
+				url: '/',
+				templateUrl: 'app/views/about.html'
+			})
 			.state('about', {
 				url: '/about',
 				templateUrl: 'app/views/about.html'
@@ -24,7 +28,7 @@ angular.module('mainModule', ['ui.router', 'imagesModule'])
 			.state('inne', {
 				url: '/inne',
 				templateUrl: 'app/views/inne.html'
-			});
+			})
 	}])
 
 	.run(function($rootScope, $state) {
