@@ -245,6 +245,13 @@ footer {
 .full-width-image {
 	margin: 30px 0;
 	background-color: #101F2B;
+	position: relative;
+	height: 400px;
+}
+
+.full-width-image img {
+	max-height: 400px;
+	display: block;
 }
 
 .full-width-thumbnails {
@@ -253,4 +260,39 @@ footer {
 	background-color: #101F2B;
 	margin-right: 0;
 	margin-left: 0;
+}
+
+.slider-animation {
+  -webkit-transition:0.3s linear all;
+  -moz-transition:0.3s linear all;
+  -o-transition:0.3s linear all;
+  transition:0.3s linear all;
+  opacity:1;
+  position: absolute;
+  left: 50%;
+}
+
+.slider-image {
+	position: relative;
+	left: -50%;
+}
+
+.slider-animation.ng-hide {
+  opacity:0;	
+}
+
+/* images navigation */
+.navigate {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	cursor: pointer;
+}
+
+.navigate-left {
+
+}
+
+.navigate-right {
+	left: 50%;
 }

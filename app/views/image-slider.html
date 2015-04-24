@@ -1,6 +1,10 @@
-<div class="full-width-image no-margin">
+<div class="full-width-image no-margin slider-div">
 	<img ng-if="img" ng-src="{{ img }}" class="img-responsive center-block">
-	<img ng-if="!img && json" ng-repeat="image in imagesCtrl.images" ng-show="imagesCtrl.isSet($index)" ng-src="http://autoradio.poznan.pl/nawigacja/nawigacja/{{ image.filename }}" class="img-responsive center-block">
+	<div ng-if="!img && json" ng-show="imagesCtrl.isSet($index)" ng-repeat="image in imagesCtrl.images" class="center-block  slider-animation">
+		<img ng-src="http://autoradio.poznan.pl/nawigacja/nawigacja/{{ image.filename }}" class="img-responsive slider-image">
+		<span class="navigate navigate-left glyphicon glyphicon-chevron-left" ng-click="imagesCtrl.decreaseIndex()"></span>
+		<span class="navigate navigate-right glyphicon glyphicon-chevron-right" ng-click="imagesCtrl.increaseIndex()"></div>
+	</div>
 </div>
 <div ng-if="!img && json" class="row full-width-thumbnails">
 	<div class="col-lg-3 col-md-4 col-xs-6 thumb" ng-repeat="image in imagesCtrl.images">

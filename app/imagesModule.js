@@ -1,5 +1,5 @@
 (function(){
-angular.module('imagesModule', [])
+angular.module('imagesModule', ['ngAnimate'])
 
 	.directive('imageSlider', function() {
 		return {
@@ -12,7 +12,7 @@ angular.module('imagesModule', [])
 			controller: function($scope, galleryFactory) {
 				this.imageNumber = 0;
 				this.images = [];
-
+				
 				this.isSet = function(number) {
 					return this.imageNumber === number;
 				};
@@ -20,6 +20,16 @@ angular.module('imagesModule', [])
 				this.setImage = function(number) {
 					this.imageNumber = number;
 				};
+
+				this.increaseIndex = function() {
+					this.imageNumber = (this.imageNumber + 1) % this.images.length;
+					console.log(this.imageNumber);
+				}
+
+				this.decreaseIndex = function() {
+					this.imageNumber = (((this.imageNumber - 1) % this.images.length) + this.images.length) % this.images.length;
+					console.log(this.imageNumber);
+				}
 
 				galleryFactory.getImages($scope.json)
 					.then(angular.bind(this, function then() {
