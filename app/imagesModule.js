@@ -1,11 +1,20 @@
 (function(){
 angular.module('imagesModule', ['ngAnimate'])
 
-	.directive('imageSlider', function() {
+	.directive('singleImage', function() {
 		return {
 			restrict: 'E',
 			scope: {
 				img: '@',
+			},
+			templateUrl: 'app/views/single-image.html'
+		}
+	})
+
+	.directive('imageSlider', function() {
+		return {
+			restrict: 'E',
+			scope: {
 				json: '@',
 			},
 			templateUrl: 'app/views/image-slider.html',
@@ -36,7 +45,7 @@ angular.module('imagesModule', ['ngAnimate'])
 						this.images = galleryFactory.images;
 					} ));
 			},
-			controllerAs: "imagesCtrl"
+			controllerAs: "sliderCtrl"
 		};
 	})
 
