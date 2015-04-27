@@ -32,12 +32,21 @@ angular.module('imagesModule', ['ngAnimate'])
 
 				this.increaseIndex = function() {
 					this.imageNumber = (this.imageNumber + 1) % this.images.length;
+					this.slideThumbnails();
 					console.log(this.imageNumber);
 				}
 
 				this.decreaseIndex = function() {
 					this.imageNumber = (((this.imageNumber - 1) % this.images.length) + this.images.length) % this.images.length;
+					this.slideThumbnails();
 					console.log(this.imageNumber);
+				}
+
+				this.slideThumbnails = function() {
+					var numberOfFullThumbs = Math.floor(document.getElementById('content').offsetWidth / 193);		//number of full thumbnails in a row
+					var factor = Math.floor(this.imageNumber / numberOfFullThumbs);
+					var shift = factor * numberOfFullThumbs * 193;
+					document.getElementById('thumbnails-row').style.left = -shift;
 				}
 
 				galleryFactory.getImages($scope.json)

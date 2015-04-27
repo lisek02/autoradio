@@ -262,6 +262,8 @@ footer {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+  margin-left: -3px;
+  position: relative;
 }
 
 .slider-animation {
@@ -293,6 +295,7 @@ footer {
 	overflow: hidden;
 	position: relative;
 	margin-top: -183px;
+	margin-bottom: 30px;
 }
 
 /* images navigation */
