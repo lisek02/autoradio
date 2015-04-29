@@ -276,13 +276,13 @@ footer {
   width: 100%;
 }
 
+.slider-animation.ng-hide {
+  opacity:0;	
+}
+
 .slider-image {
 	position: relative;
 	margin: 0 auto;
-}
-
-.slider-animation.ng-hide {
-  opacity:0;	
 }
 
 .slider-div {
@@ -296,6 +296,10 @@ footer {
 	position: relative;
 	margin-top: -183px;
 	margin-bottom: 30px;
+}
+
+.thumbnails-container {
+	background-color: #101F2B;
 }
 
 /* images navigation */

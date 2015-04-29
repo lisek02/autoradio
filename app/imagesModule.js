@@ -46,7 +46,7 @@ angular.module('imagesModule', ['ngAnimate'])
 					var numberOfFullThumbs = Math.floor(document.getElementById('content').offsetWidth / 193);		//number of full thumbnails in a row
 					var factor = Math.floor(this.imageNumber / numberOfFullThumbs);
 					var shift = factor * numberOfFullThumbs * 193;
-					document.getElementById('thumbnails-row').style.left = -shift;
+					$('.full-width-thumbnails').stop().animate({left: -shift}, 1000, 'easeInOutExpo');
 				}
 
 				galleryFactory.getImages($scope.json)
