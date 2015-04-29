@@ -48,7 +48,7 @@ angular.module('imagesModule', ['ngAnimate'])
 					var shift = factor * numberOfFullThumbs * 193;
 					$('.full-width-thumbnails').stop().animate({left: -shift}, 1000, 'easeInOutExpo');
 				}
-
+				
 				galleryFactory.getImages($scope.json)
 					.then(angular.bind(this, function then() {
 						this.images = galleryFactory.images;

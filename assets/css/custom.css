@@ -329,5 +329,36 @@ footer {
 .glyphicon-chevron-left:before, .glyphicon-chevron-right:before {
 	display: block;
 	height: 100%;
-	padding-top: 33%;
+}
+
+.full-width-image .glyphicon-chevron-left:before, .full-width-image .glyphicon-chevron-right:before {
+	padding-top: 175px;
+}
+
+.slider-container .glyphicon-chevron-left:before, .slider-container .glyphicon-chevron-right:before {
+	width: 25px;
+	background-color: rgba(16, 31, 43, 0.79);
+	text-align: center;
+	padding-top: 65px;
+}
+
+.slider-container .glyphicon-chevron-right:before {
+	float: right;
+}
+
+.slider-container:hover .thumbnails-navigate {
+	opacity: 1;
+}
+
+/*thumbnails navigation */
+.thumbnails-navigate {
+	position: absolute;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.thumbnails-navigate-right {
+	left: 100%;
+	margin-left: -25px;
 }
