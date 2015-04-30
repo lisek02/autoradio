@@ -242,6 +242,7 @@ footer {
 
 .thumbnail img {
 	height: 140px;
+	cursor: pointer;
 }
 
 .full-width-image {

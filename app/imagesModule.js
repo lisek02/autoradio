@@ -21,6 +21,9 @@ angular.module('imagesModule', ['ngAnimate'])
 			controller: function($scope, galleryFactory) {
 				this.imageNumber = 0;
 				this.images = [];
+				this.factor = 0;
+				this.shift = 0;
+				this.numberOfFullThumbs = Math.floor(document.getElementById('content').offsetWidth / 193);		//number of full thumbnails in a row
 				
 				this.isSet = function(number) {
 					return this.imageNumber === number;
@@ -43,12 +46,21 @@ angular.module('imagesModule', ['ngAnimate'])
 				}
 
 				this.slideThumbnails = function() {
-					var numberOfFullThumbs = Math.floor(document.getElementById('content').offsetWidth / 193);		//number of full thumbnails in a row
-					var factor = Math.floor(this.imageNumber / numberOfFullThumbs);
-					var shift = factor * numberOfFullThumbs * 193;
-					$('.full-width-thumbnails').stop().animate({left: -shift}, 1000, 'easeInOutExpo');
+					this.factor = Math.floor(this.imageNumber / this.numberOfFullThumbs);
+					this.shift = this.factor * this.numberOfFullThumbs * 193;
+					$('.full-width-thumbnails').stop().animate({left: -this.shift}, 1000, 'easeInOutExpo');
 				}
-				
+
+				this.increaseShift = function() {
+					(this.factor < Math.round(this.images.length / this.numberOfFullThumbs)) ? this.factor++ : this.factor = 0;
+					$('.full-width-thumbnails').stop().animate({left: -(this.factor) * this.numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
+				}
+
+				this.decreaseShift = function() {
+					(this.factor > 0) ? this.factor-- : this.factor = Math.round(this.images.length / this.numberOfFullThumbs);
+					$('.full-width-thumbnails').stop().animate({left: -(this.factor) * this.numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
+				}
+
 				galleryFactory.getImages($scope.json)
 					.then(angular.bind(this, function then() {
 						this.images = galleryFactory.images;
