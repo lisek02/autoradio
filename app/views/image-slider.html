@@ -1,18 +1,18 @@
 <div class="full-width-image no-margin slider-div">
 	<div ng-show="sliderCtrl.isSet($index)" ng-repeat="image in sliderCtrl.images" class="center-block  slider-animation">
-		<img ng-src="http://autoradio.poznan.pl/cbradio/anteny/{{ image.filename }}" class="img-responsive slider-image">
-		<span class="navigate navigate-left glyphicon glyphicon-chevron-left" ng-click="sliderCtrl.decreaseIndex()"></span>
-		<span class="navigate navigate-right glyphicon glyphicon-chevron-right" ng-click="sliderCtrl.increaseIndex()"></div>
+		<img ng-src="http://autoradio.poznan.pl/{{ image.filename }}" class="img-responsive slider-image">
+		<span class="navigate navigate-left glyphicon glyphicon-chevron-left" ng-click="sliderCtrl.decreaseIndex($event)"></span>
+		<span class="navigate navigate-right glyphicon glyphicon-chevron-right" ng-click="sliderCtrl.increaseIndex($event)"></div>
 	</div>
 </div>
 <div class="slider-container">
 	<div class="thumbnails-container">
 		<div class="full-width-thumbnails" id="thumbnails-row">
 			<div ng-repeat="image in sliderCtrl.images" class="thumbnail">
-				<img ng-click="sliderCtrl.setImage($index)" ng-src="http://autoradio.poznan.pl/cbradio/anteny/{{image.filename}}"/>
+				<img ng-click="sliderCtrl.setImage($index)" ng-src="http://autoradio.poznan.pl/{{ image.filename }}"/>
 			</div>
 		</div>
-		<span class="glyphicon glyphicon-chevron-left thumbnails-navigate thumbnails-navigate-left" ng-click="sliderCtrl.decreaseShift()"></span>
-		<span class="glyphicon glyphicon-chevron-right thumbnails-navigate thumbnails-navigate-right" ng-click="sliderCtrl.increaseShift()"></span>
+		<span class="glyphicon glyphicon-chevron-left thumbnails-navigate thumbnails-navigate-left" ng-click="sliderCtrl.decreaseShift($event)"></span>
+		<span class="glyphicon glyphicon-chevron-right thumbnails-navigate thumbnails-navigate-right" ng-click="sliderCtrl.increaseShift($event)"></span>
 	</div>
 </div>
