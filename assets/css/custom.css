@@ -319,6 +319,21 @@ footer {
 
 #contact-form {
 	padding-right: 0px;
+  -webkit-transition:0.3s linear all;
+  -moz-transition:0.3s linear all;
+  -o-transition:0.3s linear all;
+  transition:0.3s linear all;
+}
+
+#contact-message {
+  -webkit-transition:0.3s linear all;
+  -moz-transition:0.3s linear all;
+  -o-transition:0.3s linear all;
+  transition:0.3s linear all;	
+}
+
+.col-md-0 {
+	width: 0!important;
 }
 
 .error-container {
