@@ -16,28 +16,35 @@
   </div>
   <div class="input-group" ng-controller="contactController as contactCtrl">
     <h1>Napisz do nas</h1>
-    <form name="contactForm" novalidate class="simple-form">
-      <div class="error-container" ng-show="contactCtrl.submitted">
-        <span class="error" ng-show="contactForm.email.$error.required && !contactForm.content.$error.required">Adres email jest wymagany!</span>
-        <span class="error" ng-show="contactForm.email.$error.email">Niepoprawny adres email!</span>
-        <span class="error" ng-show="contactForm.content.$error.required && !contactForm.email.$error.required">Treść wiadomości jest wymagana!</span>
-        <span class="error" ng-show="contactForm.content.$error.required && contactForm.email.$error.required">Adres email i treść wiadomości są wymagane!</span>
+    <div class="row">
+      <div class="col-md-10" id="contact-form">
+        <form name="contactForm" novalidate class="simple-form">
+          <input type="email"
+                name="email"
+                data-ng-model="contact.email"
+                class="form-control form-control-no-border"
+                placeholder="Twój adres email"
+                required />
+          <textarea name="content"
+                data-ng-model="contact.content"
+                class="form-control form-control-no-border"
+                placeholder="Twoja wiadomość"
+                rows="5"
+                required>
+          </textarea>
+          <input type="submit" class="btn btn-default" ng-click="contactCtrl.sendMessage(contact)" value="Wyślij">
+        </form>
       </div>
-      <input type="email"
-            name="email"
-            data-ng-model="contact.email"
-            class="form-control form-control-no-border"
-            placeholder="Twój adres email"
-            required />
-      <textarea name="content"
-            data-ng-model="contact.content"
-            class="form-control form-control-no-border"
-            placeholder="Twoja wiadomość"
-            rows="5"
-            required>
-      </textarea>
-      <input type="submit" class="btn btn-default" ng-click="contactCtrl.sendMessage(contact)" value="Wyślij">
-    </form>
+      <div class="col-md-2">
+        <div class="error-container" ng-show="contactCtrl.submitted">
+          <span class="error" ng-show="contactForm.email.$error.required && !contactForm.content.$error.required">Adres email jest wymagany!</span>
+          <span class="error" ng-show="contactForm.email.$error.email">Niepoprawny adres email!</span>
+          <span class="error" ng-show="contactForm.content.$error.required && !contactForm.email.$error.required">Treść wiadomości jest wymagana!</span>
+          <span class="error" ng-show="contactForm.content.$error.required && contactForm.email.$error.required">Adres email i treść wiadomości są wymagane!</span>
+        </div>
+        <div class="triangle" ng-show="contactCtrl.submitted"></div>
+      </div>
+    </div>
     <p>{{ contactCtrl.message }}</p>
   </div>
 </div>
