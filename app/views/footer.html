@@ -17,7 +17,7 @@
   <div class="input-group" ng-controller="contactController as contactCtrl">
     <h1>Napisz do nas</h1>
     <div class="row">
-      <div ng-class="contactCtrl.formRowNumbers" id="contact-form">
+      <div ng-class="(contactForm.$valid || !contactCtrl.submitted) ? ' col-xs-12' : 'col-md-10 col-sm-9 col-xs-8'" id="contact-form">
         <form name="contactForm" novalidate class="simple-form">
           <input type="email"
                 name="email"
@@ -35,10 +35,10 @@
           <input type="submit" class="btn btn-default" ng-click="contactCtrl.sendMessage(contact)" value="Wyślij">
         </form>
       </div>
-      <div ng-class="contactCtrl.messageRowNumbers" id="contact-message" ng-show="contactCtrl.submitted && contactForm.$invalid">
+      <div ng-class="(contactForm.$valid || !contactCtrl.submitted) ? 'col-xs-0' : 'col-md-2 col-sm-3 col-xs-4'" id="contact-message" ng-show="contactCtrl.submitted && contactForm.$invalid">
         <div class="error-container">
           <span class="error" ng-show="contactForm.email.$error.required && !contactForm.content.$error.required">Adres email jest wymagany!</span>
-          <span class="error" ng-show="contactForm.email.$error.email">Niepoprawny adres email!</span>
+          <span class="error" ng-show="contactForm.email.$error.email">Niepoprawny adres email!</br></span>
           <span class="error" ng-show="contactForm.content.$error.required && !contactForm.email.$error.required">Treść wiadomości jest wymagana!</span>
           <span class="error" ng-show="contactForm.content.$error.required && contactForm.email.$error.required">Adres email i treść wiadomości są wymagane!</span>
         </div>

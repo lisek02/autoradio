@@ -332,8 +332,9 @@ footer {
   transition:0.3s linear all;	
 }
 
-.col-md-0 {
+.col-xs-0 {
 	width: 0!important;
+	float: right;
 }
 
 .error-container {
