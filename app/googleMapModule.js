@@ -21,8 +21,13 @@ angular.module('googleMapModule', ['uiGmapgoogle-maps'])
 
 	    // uiGmapGoogleMapApi is a promise.
 	    // The "then" callback function provides the google.maps object.
-			$scope.map = { center: { latitude: 52.409287, longitude: 16.962510 }, zoom: 16 };
-
+			$scope.map = { center: { latitude: 52.409297, longitude: 16.962506 }, zoom: 16 };
+	    $scope.marker = {
+	      coords: {
+	        latitude: 52.409297,
+	        longitude: 16.962506
+	      },
+	    };
 	    uiGmapGoogleMapApi.then(function(maps) {
 
 	    });
