@@ -277,10 +277,13 @@ footer {
 }
 
 #map {
-	background-color: #E9E5DC;
 	width: 100%;
-	height: 130px;
+	height: 240px;
 	margin-bottom: 25px;
+}
+
+.angular-google-map-container {
+	height: 240px;
 }
 
 .input-group {

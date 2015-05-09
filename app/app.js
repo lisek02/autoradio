@@ -1,5 +1,5 @@
 (function(){
-angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule'])
+angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'googleMapModule'])
 
 	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("");
