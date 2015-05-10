@@ -276,6 +276,10 @@ footer {
 	border-top: 5px solid rgb(11, 83, 125);
 }
 
+#contact-details {
+	font-size: 16px;
+}
+
 #map {
 	width: 100%;
 	height: 300px;
@@ -332,7 +336,8 @@ footer {
   -webkit-transition:0.3s linear all;
   -moz-transition:0.3s linear all;
   -o-transition:0.3s linear all;
-  transition:0.3s linear all;	
+  transition:0.3s linear all;
+	padding-left: 0px;
 }
 
 .col-xs-0 {
