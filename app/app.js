@@ -2,12 +2,11 @@
 angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'googleMapModule'])
 
 	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-		$urlRouterProvider.otherwise("");
+		$urlRouterProvider.otherwise("/");
 
 		$stateProvider
 			.state('home', {
-				url: '/',
-				templateUrl: 'app/views/about.html'
+				url: '/'
 			})
 			.state('about', {
 				url: '/about',
@@ -31,16 +30,20 @@ angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'goo
 			})
 	}])
 
-	.run(function($rootScope, $state) {
+	.run(function($rootScope, $state, $location) {
 		$rootScope.$on('$stateChangeSuccess',function(){
-				var $anchor = $('#content');
+			$rootScope.currentPath = $location.url();
+			console.log($state.current.url != '/');
+			var $anchorHeight = $('.jumbotron').height() + 150;
+			if($rootScope.currentPath != '/') {
 		    $("html, body").stop().animate({ 
-		    	scrollTop: $anchor.offset().top - 90
+		    	scrollTop: $anchorHeight
 		    }, 1000, 'easeInOutExpo');
+		  }
 		})
 	})
 
-	.controller('mainController', ['$scope', function($scope) {
+	.controller('mainController', ['$scope', '$location', function($scope, $location) {
 	}])
 
 	.directive('scrollToContact', function(){
@@ -49,7 +52,7 @@ angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'goo
 			link: function($scope, $element) {
 				$element.on('click', function() {
 					$("html, body").stop().animate({
-						scrollTop: $(document).height()
+						scrollTop: $(document).height() - $('#contact').height() - $('.navbar-header').height()
 					}, 1000, 'easeInOutExpo');	
 				});
 			}

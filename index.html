@@ -12,9 +12,9 @@
 </head>
 <body ng-app="mainModule">
   <navbar></navbar>
-  <div class="container">
+  <div class="container" ng-controller="mainController as mainCtrl">
     <header class="jumbotron"></header>
-    <section id="content" ng-controller="mainController as mainCtrl">
+    <section id="content" ng-hide="currentPath == '/'">
       <div ui-view></div>
     </section>
   </div>
