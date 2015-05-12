@@ -21,7 +21,7 @@ angular.module('imagesModule', ['ngAnimate'])
 			controller: function($scope, galleryFactory) {
 				var imageNumber = 0;
 				this.images = [];
-				var factor = 0;
+				this.factor = 0;
 				var shift = 0;
 				var numberOfFullThumbs = Math.floor(document.getElementById('content').offsetWidth / 193);		//number of full thumbnails in a row
 				
@@ -43,20 +43,32 @@ angular.module('imagesModule', ['ngAnimate'])
 					this.slideThumbnails(event);
 				}
 
-				this.slideThumbnails = function() {
-					factor = Math.floor(imageNumber / numberOfFullThumbs);
-					shift = factor * numberOfFullThumbs * 193;
+				this.slideThumbnails = function(event) {
+					this.factor = Math.floor(imageNumber / numberOfFullThumbs);
+					shift = this.factor * numberOfFullThumbs * 193;
 					$(event.target).parent().parent().siblings(':first').children().children('.full-width-thumbnails').stop().animate({left: -shift}, 1000, 'easeInOutExpo');
 				}
 
 				this.increaseShift = function(event) {
-					(factor < Math.round(this.images.length / numberOfFullThumbs)) ? factor++ : factor = 0;
-					$(event.target).siblings('.full-width-thumbnails').stop().animate({left: -(factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
+					(this.factor < Math.round(this.images.length / numberOfFullThumbs)) ? this.factor++ : this.factor = 0;
+					$(event.target).siblings('.full-width-thumbnails').stop().animate({left: -(this.factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
 				}
 
-				this.decreaseShift = function() {
-					(factor > 0) ? factor-- : factor = Math.round(this.images.length / numberOfFullThumbs);
-					$(event.target).siblings('.full-width-thumbnails').stop().animate({left: -(factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
+				this.decreaseShift = function(event) {
+					(this.factor > 0) ? this.factor-- : this.factor = Math.round(this.images.length / numberOfFullThumbs);
+					$(event.target).siblings('.full-width-thumbnails').stop().animate({left: -(this.factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
+				}
+
+				this.increaseFactor = function(event) {
+					this.factor++;
+					$('.full-width-thumbnails').stop().animate({left: -(this.factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
+					console.log("test");
+				}
+
+				this.decreaseFactor = function(event) {
+					this.factor--;
+					$('.full-width-thumbnails').stop().animate({left: -(this.factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
+					console.log("test");
 				}
 
 				galleryFactory.getImages($scope.json)

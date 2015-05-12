@@ -7,7 +7,7 @@
 </div>
 <div class="slider-container">
 	<div class="thumbnails-container">
-		<div class="full-width-thumbnails" id="thumbnails-row">
+		<div class="full-width-thumbnails" id="thumbnails-row" ng-swipe-left="sliderCtrl.increaseFactor($event)" ng-swipe-right="sliderCtrl.decreaseFactor($event)">
 			<div ng-repeat="image in sliderCtrl.images" class="thumbnail">
 				<img ng-click="sliderCtrl.setImage($index)" ng-src="http://autoradio.poznan.pl/{{ image.filename }}"/>
 			</div>
