@@ -74,14 +74,14 @@ h1 {
 
 /*header*/
 .jumbotron {
-	height: 800px;
+	min-height: 510px;
 	background-image: url('/assets/images/background-jumbotron_nomargins.png');
 	background-size: 100%;
 	background-color: transparent!important;
 	background-repeat: no-repeat;
-	background-position: center;
 	padding: 9% 10px 0 10px!important;
-	margin:	85px 0;
+	margin-top:	85px;
+	margin-bottom: 125px;
 }
 
 .jumbotron h1, .jumbotron h2 {
@@ -140,8 +140,10 @@ h1 {
 	}
 	.jumbotron {
 		width: 750px;
+		min-height: 520px!important;
 		margin-left: auto;
 		margin-right: auto;
+		margin-bottom: 125px!important;
 	}
 	.margin {
 		margin: 0 40px;
@@ -170,8 +172,10 @@ h1 {
 	}
 	.jumbotron {
 		width: 960px;
+		min-height: 670px!important;
 		margin-left: auto;
 		margin-right: auto;
+		margin-bottom: 100px!important;
 	}
 	.margin {
 		margin: 0 40px;
@@ -200,8 +204,10 @@ h1 {
 	}
 	.jumbotron {
 		width: 100%;
+		min-height: 830px!important;
 		margin-left: auto;
 		margin-right: auto;
+		margin-bottom: 85px!important;
 	}
 	.margin {
 		margin: 0 40px;

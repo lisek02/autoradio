@@ -34,7 +34,7 @@ angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'goo
 		$rootScope.$on('$stateChangeSuccess',function(){
 			$rootScope.currentPath = $location.url();
 			console.log($state.current.url != '/');
-			var $anchorHeight = $('.jumbotron').height() + 150;
+			var $anchorHeight = $('.jumbotron').height() + 180;
 			if($rootScope.currentPath != '/') {
 		    $("html, body").stop().animate({ 
 		    	scrollTop: $anchorHeight
@@ -60,7 +60,6 @@ angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'goo
 	})
 
 	.directive('navbar', function(){
-		// Runs during compile
 		return {
 			restrict: 'E',
 			templateUrl: 'app/views/navbar.html',
@@ -71,7 +70,6 @@ angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'goo
 	})
 
 	.directive('header', function(){
-		// Runs during compile
 		return {
 			restrict: 'E',
 			templateUrl: 'app/views/header.html',
@@ -82,7 +80,6 @@ angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'goo
 	})
 
 	.directive('footer', function(){
-		// Runs during compile
 		return {
 			restrict: 'E',
 			templateUrl: 'app/views/footer.html',
