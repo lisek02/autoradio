@@ -33,42 +33,43 @@ angular.module('imagesModule', ['ngAnimate'])
 					imageNumber = number;
 				};
 
-				this.increaseIndex = function(event) {
+				this.increaseIndex = function() {
 					imageNumber = (imageNumber + 1) % this.images.length;
-					this.slideThumbnails(event);
+					this.slideThumbnails();
 				}
 
-				this.decreaseIndex = function(event) {
+				this.decreaseIndex = function() {
 					imageNumber = (((imageNumber - 1) % this.images.length) + this.images.length) % this.images.length;
-					this.slideThumbnails(event);
+					this.slideThumbnails();
 				}
 
-				this.slideThumbnails = function(event) {
+				this.slideThumbnails = function() {
+					console.log(event);
 					this.factor = Math.floor(imageNumber / numberOfFullThumbs);
 					shift = this.factor * numberOfFullThumbs * 193;
 					$(event.target).parent().parent().siblings(':first').children().children('.full-width-thumbnails').stop().animate({left: -shift}, 1000, 'easeInOutExpo');
 				}
 
-				this.increaseShift = function(event) {
+				this.increaseShift = function() {
+					console.log(event);
 					(this.factor < Math.round(this.images.length / numberOfFullThumbs)) ? this.factor++ : this.factor = 0;
 					$(event.target).siblings('.full-width-thumbnails').stop().animate({left: -(this.factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
 				}
 
-				this.decreaseShift = function(event) {
+				this.decreaseShift = function() {
 					(this.factor > 0) ? this.factor-- : this.factor = Math.round(this.images.length / numberOfFullThumbs);
 					$(event.target).siblings('.full-width-thumbnails').stop().animate({left: -(this.factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
 				}
 
-				this.increaseFactor = function(event) {
+				this.increaseFactor = function() {
+					console.log(event.target);
 					this.factor++;
-					$('.full-width-thumbnails').stop().animate({left: -(this.factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
-					console.log("test");
+					$(event.target).parent().parent().stop().animate({left: -(this.factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
 				}
 
-				this.decreaseFactor = function(event) {
+				this.decreaseFactor = function() {
 					this.factor--;
-					$('.full-width-thumbnails').stop().animate({left: -(this.factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
-					console.log("test");
+					$(event.target).parent().parent().stop().animate({left: -(this.factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
 				}
 
 				galleryFactory.getImages($scope.json)
