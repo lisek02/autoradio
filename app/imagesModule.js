@@ -33,17 +33,6 @@ angular.module('imagesModule', ['ngAnimate'])
 					this.imageNumber = number;
 				};
 
-				this.increaseShift = function() {
-					console.log(event);
-					(this.factor < Math.round(this.images.length / numberOfFullThumbs)) ? this.factor++ : this.factor = 0;
-					$(event.target).siblings('.full-width-thumbnails').stop().animate({left: -(this.factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
-				}
-
-				this.decreaseShift = function() {
-					(this.factor > 0) ? this.factor-- : this.factor = Math.round(this.images.length / numberOfFullThumbs);
-					$(event.target).siblings('.full-width-thumbnails').stop().animate({left: -(this.factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
-				}
-
 				this.increaseFactor = function() {
 					console.log(event.target);
 					this.factor++;
@@ -73,7 +62,7 @@ angular.module('imagesModule', ['ngAnimate'])
 			].join('\n'),
 			link: function(scope, element, attrs, controller) {
 				scope.changeIndex = function(direction) {
-					console.log(event.target);
+					console.log(element);
 					if(direction == 'left') {
 						controller.imageNumber = (((controller.imageNumber - 1) % controller.images.length) + controller.images.length) % controller.images.length;
 					} else {
@@ -81,8 +70,31 @@ angular.module('imagesModule', ['ngAnimate'])
 					};
 					controller.factor = Math.floor(controller.imageNumber / controller.numberOfFullThumbs);
 					controller.shift = controller.factor * controller.numberOfFullThumbs * 193;
-					$(event.target).parent().parent().parent().siblings(':first').children().children('.full-width-thumbnails').stop().animate({left: -controller.shift}, 1000, 'easeInOutExpo');
+					$(element).parent().parent().siblings(':first').children().children('.full-width-thumbnails').stop().animate({left: -controller.shift}, 1000, 'easeInOutExpo');
 				}
+			},
+			scope: {
+				direction: '@'
+			}
+		};
+	})
+
+	.directive('thumbnailsNavigation', function() {
+		return {
+			restrict: 'E',
+			require: '^imageSlider',
+			template: [
+				'<span class="glyphicon glyphicon-chevron-{{ direction }} thumbnails-navigate thumbnails-navigate-{{ direction }}" ng-click="changeShift(direction)"></span>'
+			].join('\n'),
+			link: function(scope, element, attrs, controller) {
+				scope.changeShift = function(direction) {
+					if(direction == 'left') {
+						(controller.factor > 0) ? controller.factor-- : controller.factor = Math.round(controller.images.length / controller.numberOfFullThumbs);
+					} else {
+						(controller.factor < Math.round(controller.images.length / controller.numberOfFullThumbs)) ? controller.factor++ : controller.factor = 0;
+					};
+					$(element).siblings('.full-width-thumbnails').stop().animate({left: -(controller.factor) * controller.numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
+				}	
 			},
 			scope: {
 				direction: '@'

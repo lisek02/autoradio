@@ -12,7 +12,7 @@
 				<img ng-click="sliderCtrl.setImage($index)" ng-src="http://autoradio.poznan.pl/{{ image.filename }}"/>
 			</div>
 		</div>
-		<span class="glyphicon glyphicon-chevron-left thumbnails-navigate thumbnails-navigate-left" ng-click="sliderCtrl.decreaseShift()"></span>
-		<span class="glyphicon glyphicon-chevron-right thumbnails-navigate thumbnails-navigate-right" ng-click="sliderCtrl.increaseShift()"></span>
+		<thumbnails-navigation direction="left"></thumbnails-navigation>
+		<thumbnails-navigation direction="right"></thumbnails-navigation>
 	</div>
 </div>
