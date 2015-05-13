@@ -19,36 +19,19 @@ angular.module('imagesModule', ['ngAnimate'])
 			},
 			templateUrl: 'app/views/image-slider.html',
 			controller: function($scope, galleryFactory) {
-				var imageNumber = 0;
+				this.imageNumber = 0;
 				this.images = [];
 				this.factor = 0;
-				var shift = 0;
-				var numberOfFullThumbs = Math.floor(document.getElementById('content').offsetWidth / 193);		//number of full thumbnails in a row
+				this.shift = 0;
+				this.numberOfFullThumbs = Math.floor(document.getElementById('content').offsetWidth / 193);		//number of full thumbnails in a row
 				
 				this.isSet = function(number) {
-					return imageNumber === number;
+					return this.imageNumber === number;
 				};
 
 				this.setImage = function(number) {
-					imageNumber = number;
+					this.imageNumber = number;
 				};
-
-				this.increaseIndex = function() {
-					imageNumber = (imageNumber + 1) % this.images.length;
-					this.slideThumbnails();
-				}
-
-				this.decreaseIndex = function() {
-					imageNumber = (((imageNumber - 1) % this.images.length) + this.images.length) % this.images.length;
-					this.slideThumbnails();
-				}
-
-				this.slideThumbnails = function() {
-					console.log(event);
-					this.factor = Math.floor(imageNumber / numberOfFullThumbs);
-					shift = this.factor * numberOfFullThumbs * 193;
-					$(event.target).parent().parent().siblings(':first').children().children('.full-width-thumbnails').stop().animate({left: -shift}, 1000, 'easeInOutExpo');
-				}
 
 				this.increaseShift = function() {
 					console.log(event);
@@ -78,6 +61,32 @@ angular.module('imagesModule', ['ngAnimate'])
 					} ));
 			},
 			controllerAs: "sliderCtrl"
+		};
+	})
+
+	.directive('imageNavigation', function() {
+		return {
+			restrict: 'E',
+			require: '^imageSlider',
+			template: [
+				'<span class="navigate navigate-{{ direction }} glyphicon glyphicon-chevron-{{ direction }}" ng-click="changeIndex(direction)"></span>'
+			].join('\n'),
+			link: function(scope, element, attrs, controller) {
+				scope.changeIndex = function(direction) {
+					console.log(event.target);
+					if(direction == 'left') {
+						controller.imageNumber = (((controller.imageNumber - 1) % controller.images.length) + controller.images.length) % controller.images.length;
+					} else {
+						controller.imageNumber = (controller.imageNumber + 1) % controller.images.length;
+					};
+					controller.factor = Math.floor(controller.imageNumber / controller.numberOfFullThumbs);
+					controller.shift = controller.factor * controller.numberOfFullThumbs * 193;
+					$(event.target).parent().parent().parent().siblings(':first').children().children('.full-width-thumbnails').stop().animate({left: -controller.shift}, 1000, 'easeInOutExpo');
+				}
+			},
+			scope: {
+				direction: '@'
+			}
 		};
 	})
 
