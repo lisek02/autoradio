@@ -33,17 +33,6 @@ angular.module('imagesModule', ['ngAnimate'])
 					this.imageNumber = number;
 				};
 
-				this.increaseFactor = function() {
-					console.log(event.target);
-					this.factor++;
-					$(event.target).parent().parent().stop().animate({left: -(this.factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
-				}
-
-				this.decreaseFactor = function() {
-					this.factor--;
-					$(event.target).parent().parent().stop().animate({left: -(this.factor) * numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
-				}
-
 				galleryFactory.getImages($scope.json)
 					.then(angular.bind(this, function then() {
 						this.images = galleryFactory.images;
@@ -62,7 +51,6 @@ angular.module('imagesModule', ['ngAnimate'])
 			].join('\n'),
 			link: function(scope, element, attrs, controller) {
 				scope.changeIndex = function(direction) {
-					console.log(element);
 					if(direction == 'left') {
 						controller.imageNumber = (((controller.imageNumber - 1) % controller.images.length) + controller.images.length) % controller.images.length;
 					} else {
@@ -70,7 +58,7 @@ angular.module('imagesModule', ['ngAnimate'])
 					};
 					controller.factor = Math.floor(controller.imageNumber / controller.numberOfFullThumbs);
 					controller.shift = controller.factor * controller.numberOfFullThumbs * 193;
-					$(element).parent().parent().siblings(':first').children().children('.full-width-thumbnails').stop().animate({left: -controller.shift}, 1000, 'easeInOutExpo');
+					$(element).parent().parent().siblings(':first').children().children(':first').children('.full-width-thumbnails').stop().animate({left: -controller.shift}, 1000, 'easeInOutExpo');
 				}
 			},
 			scope: {
@@ -79,6 +67,32 @@ angular.module('imagesModule', ['ngAnimate'])
 		};
 	})
 
+	.directive('thumbnailsDisplay', function() {
+		return {
+			restrict: 'E',
+			require: '^imageSlider',
+			template: [
+				'<div class="full-width-thumbnails" id="thumbnails-row" ng-swipe-left="changeFactor(\'left\')" ng-swipe-right="changeFactor(\'right\')">',
+					'<div ng-repeat="image in images" class="thumbnail">',
+						'<img ng-click="setImage($index)" ng-src="http://autoradio.poznan.pl/{{ image.filename }}"/>',
+					'</div>',
+				'</div>'
+			].join("\n"),
+			link: function(scope, element, attrs, controller) {
+				scope.setImage = function(index) {
+					controller.setImage(index);
+				}
+				scope.changeFactor = function(direction) {
+					(direction == 'left') ? controller.factor++ : controller.factor--;
+					$(element).children('.full-width-thumbnails').stop().animate({left: -(controller.factor) * controller.numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
+				}
+			},
+			scope: {
+				images: '='
+			}
+		};
+	})
+	
 	.directive('thumbnailsNavigation', function() {
 		return {
 			restrict: 'E',
@@ -93,7 +107,7 @@ angular.module('imagesModule', ['ngAnimate'])
 					} else {
 						(controller.factor < Math.round(controller.images.length / controller.numberOfFullThumbs)) ? controller.factor++ : controller.factor = 0;
 					};
-					$(element).siblings('.full-width-thumbnails').stop().animate({left: -(controller.factor) * controller.numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
+					$(element).siblings('thumbnails-display').children('.full-width-thumbnails').stop().animate({left: -(controller.factor) * controller.numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
 				}	
 			},
 			scope: {
