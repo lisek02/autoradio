@@ -102,12 +102,17 @@ angular.module('imagesModule', ['ngAnimate'])
 			].join('\n'),
 			link: function(scope, element, attrs, controller) {
 				scope.changeShift = function(direction) {
+					/*console.log("przed: factor", controller.factor, "shift", controller.shift,
+						"imageslength", controller.images.length, "mathround", Math.ceil(controller.images.length / controller.numberOfFullThumbs) - 1,
+						"numberOfFullThumbs", controller.numberOfFullThumbs);*/
 					if(direction == 'left') {
-						(controller.factor > 0) ? controller.factor-- : controller.factor = Math.round(controller.images.length / controller.numberOfFullThumbs);
+						(controller.factor > 0) ? controller.factor-- : controller.factor = Math.ceil(controller.images.length / controller.numberOfFullThumbs) - 1;
 					} else {
-						(controller.factor < Math.round(controller.images.length / controller.numberOfFullThumbs)) ? controller.factor++ : controller.factor = 0;
+						(controller.factor < Math.ceil(controller.images.length / controller.numberOfFullThumbs) - 1) ? controller.factor++ : controller.factor = 0;
 					};
-					$(element).siblings('thumbnails-display').children('.full-width-thumbnails').stop().animate({left: -(controller.factor) * controller.numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
+					controller.shift = controller.factor * controller.numberOfFullThumbs * 193;
+					console.log("po: factor", controller.factor, "shift", controller.shift);
+					$(element).siblings('thumbnails-display').children('.full-width-thumbnails').stop().animate({left: -controller.shift}, 1000, 'easeInOutExpo');
 				}	
 			},
 			scope: {
