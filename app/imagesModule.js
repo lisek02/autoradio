@@ -33,6 +33,15 @@ angular.module('imagesModule', ['ngAnimate'])
 					this.imageNumber = number;
 				};
 
+				this.changeFactor = function(direction) {
+					if(direction == 'left') {
+						(this.factor > 0) ? this.factor-- : this.factor = Math.ceil(this.images.length / this.numberOfFullThumbs) - 1;
+					} else {
+						(this.factor < Math.ceil(this.images.length / this.numberOfFullThumbs) - 1) ? this.factor++ : this.factor = 0;
+					};
+					this.shift = this.factor * this.numberOfFullThumbs * 193;
+				}
+
 				galleryFactory.getImages($scope.json)
 					.then(angular.bind(this, function then() {
 						this.images = galleryFactory.images;
@@ -72,7 +81,7 @@ angular.module('imagesModule', ['ngAnimate'])
 			restrict: 'E',
 			require: '^imageSlider',
 			template: [
-				'<div class="full-width-thumbnails" id="thumbnails-row" ng-swipe-left="changeFactor(\'left\')" ng-swipe-right="changeFactor(\'right\')">',
+				'<div class="full-width-thumbnails" id="thumbnails-row" ng-swipe-left="changeShift(\'right\')" ng-swipe-right="changeShift(\'left\')">',
 					'<div ng-repeat="image in images" class="thumbnail">',
 						'<img ng-click="setImage($index)" ng-src="http://autoradio.poznan.pl/{{ image.filename }}"/>',
 					'</div>',
@@ -82,9 +91,9 @@ angular.module('imagesModule', ['ngAnimate'])
 				scope.setImage = function(index) {
 					controller.setImage(index);
 				}
-				scope.changeFactor = function(direction) {
-					(direction == 'left') ? controller.factor++ : controller.factor--;
-					$(element).children('.full-width-thumbnails').stop().animate({left: -(controller.factor) * controller.numberOfFullThumbs * 193}, 1000, 'easeInOutExpo');
+				scope.changeShift = function(direction) {
+					controller.changeFactor(direction);
+					$(element).children('.full-width-thumbnails').stop().animate({left: -controller.shift}, 1000, 'easeInOutExpo');
 				}
 			},
 			scope: {
@@ -102,16 +111,7 @@ angular.module('imagesModule', ['ngAnimate'])
 			].join('\n'),
 			link: function(scope, element, attrs, controller) {
 				scope.changeShift = function(direction) {
-					/*console.log("przed: factor", controller.factor, "shift", controller.shift,
-						"imageslength", controller.images.length, "mathround", Math.ceil(controller.images.length / controller.numberOfFullThumbs) - 1,
-						"numberOfFullThumbs", controller.numberOfFullThumbs);*/
-					if(direction == 'left') {
-						(controller.factor > 0) ? controller.factor-- : controller.factor = Math.ceil(controller.images.length / controller.numberOfFullThumbs) - 1;
-					} else {
-						(controller.factor < Math.ceil(controller.images.length / controller.numberOfFullThumbs) - 1) ? controller.factor++ : controller.factor = 0;
-					};
-					controller.shift = controller.factor * controller.numberOfFullThumbs * 193;
-					console.log("po: factor", controller.factor, "shift", controller.shift);
+					controller.changeFactor(direction);
 					$(element).siblings('thumbnails-display').children('.full-width-thumbnails').stop().animate({left: -controller.shift}, 1000, 'easeInOutExpo');
 				}	
 			},
