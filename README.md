@@ -1,2 +1,2 @@
 #autoradio
-[lisek02.github.io/](http://lisek02.github.io/)
+[autoradio.poznan.pl/new](http://autoradio.poznan.pl/new)
