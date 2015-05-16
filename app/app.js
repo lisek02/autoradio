@@ -69,6 +69,19 @@ angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'goo
 		};
 	})
 
+	.directive('collapseNavbar', function(){
+		return {
+			restrict: 'A',
+			link: function(scope, element, attrs) {
+				$(element).find("a").each(function(index, elm){
+					$(elm).on('click', function(event){
+						$('.navbar-collapse').collapse("hide");
+					})
+				})
+			}
+		};
+	})
+
 	.directive('header', function(){
 		return {
 			restrict: 'E',
