@@ -33,7 +33,6 @@ angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'goo
 	.run(function($rootScope, $state, $location) {
 		$rootScope.$on('$stateChangeSuccess',function(){
 			$rootScope.currentPath = $location.url();
-			console.log($state.current.url != '/');
 			var $anchorHeight = $('.jumbotron').height() + 180;
 			if($rootScope.currentPath != '/') {
 		    $("html, body").stop().animate({ 

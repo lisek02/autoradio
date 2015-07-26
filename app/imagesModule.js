@@ -83,7 +83,7 @@ angular.module('imagesModule', ['ngAnimate'])
 			template: [
 				'<div class="full-width-thumbnails" id="thumbnails-row" ng-swipe-left="changeShift(\'right\')" ng-swipe-right="changeShift(\'left\')">',
 					'<div ng-repeat="image in images" class="thumbnail">',
-						'<img ng-click="setImage($index)" ng-src="http://autoradio.poznan.pl/{{ image.filename }}"/>',
+						'<img ng-click="setImage($index)" ng-src="../assets/images/{{ image.filename }}"/>',
 					'</div>',
 				'</div>'
 			].join("\n"),

@@ -1,6 +1,6 @@
 <div class="full-width-image no-margin slider-div">
 	<div ng-show="sliderCtrl.isSet($index)" ng-repeat="image in sliderCtrl.images" class="center-block  slider-animation">
-		<img ng-src="http://autoradio.poznan.pl/{{ image.filename }}" class="img-responsive slider-image">
+		<img ng-src="./assets/images/{{ image.filename }}" class="img-responsive slider-image">
 		<image-navigation direction="left"></image-navigation>
 		<image-navigation direction="right"></image-navigation>
 	</div>

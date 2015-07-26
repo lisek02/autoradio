@@ -1,18 +1,18 @@
 [
 	{
-		"filename": "becker1.jpg",
+		"filename": "nawigacja/becker1.jpg",
 		"description": "Lorem ipsum becker1.jpg"
 	},
 	{
-		"filename": "chevrolet_cruze.jpg",
+		"filename": "nawigacja/chevrolet_cruze.jpg",
 		"description": "Lorem ipsum chevrolet_cruze.jpg"
 	},
 	{
-		"filename": "ford_focus.jpg",
+		"filename": "nawigacja/ford_focus.jpg",
 		"description": "Lorem ipsum ford_focus.jpg"
 	},
 	{
-		"filename": "ford_kuga.jpg",
+		"filename": "nawigacja/ford_kuga.jpg",
 		"description": "Lorem ipsum ford_kuga.jpg"
 	}
 ]
