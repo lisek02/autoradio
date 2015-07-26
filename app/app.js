@@ -23,10 +23,14 @@ angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'goo
 			.state('montaz', {
 				url: '/montaz',
 				templateUrl: 'app/views/montaz.html'
-			})			
-			.state('inne', {
-				url: '/inne',
-				templateUrl: 'app/views/inne.html'
+			})
+			.state('multimedia', {
+				url: '/multimedia',
+				templateUrl: 'app/views/multimedia.html'
+			})
+			.state('kamery', {
+				url: '/kamery',
+				templateUrl: 'app/views/kamery.html'
 			})
 	}])
 
