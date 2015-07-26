@@ -7,6 +7,7 @@ body {
   background: -moz-radial-gradient(circle, #0977b6, #0d547e); /* For Firefox 3.6 to 15 */
   background: radial-gradient(circle, #0977b6, #0d547e); /* Standard syntax */
   background-attachment: fixed;
+  font-size: 16px;
 }
 
 h1, h2, h3 {

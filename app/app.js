@@ -12,6 +12,10 @@ angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'goo
 				url: '/about',
 				templateUrl: 'app/views/about.html'
 			})
+			.state('naglosnienie', {
+				url: '/naglosnienie',
+				templateUrl: 'app/views/naglosnienie.html'
+			})
 			.state('nawigacja', {
 				url: '/nawigacja',
 				templateUrl: 'app/views/nawigacja.html'
