@@ -21,6 +21,17 @@ h1 {
 	margin: 10px 0 15px 0;
 }
 
+/*state animation*/
+[ui-view].ng-enter {
+  -webkit-transition: all .7s ease-in-out;
+  transition: all .7s ease-in-out;
+  opacity: 0;
+}
+
+[ui-view].ng-enter-active {
+  opacity: 1;
+}
+
 /*navbar*/
 .navbar {
 	font-family: 'Exo 2', sans-serif!important;
@@ -281,6 +292,15 @@ footer {
 	margin-top: 150px;
 	background-color: #102A3B;
 	border-top: 5px solid rgb(11, 83, 125);
+	padding-bottom: 50px;
+}
+
+footer a {
+	color: inherit;
+}
+
+footer a:hover, a:active {
+	color: #ec8016;
 }
 
 #contact-details {
