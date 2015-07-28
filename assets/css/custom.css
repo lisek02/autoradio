@@ -325,6 +325,7 @@ footer a:hover, a:active {
 .form-control {
 	background-color: #101F2B;
 	border: 1px solid #102A3B;
+	color: #ccc;
 }
 
 .form-control-no-border:focus {
@@ -384,6 +385,10 @@ footer a:hover, a:active {
 	border-width: 8px 8px 0 0;
 	width: 0;
 	height: 0;
+}
+
+input:-webkit-autofill {
+  background-color: #101F2B !important;
 }
 
 /*images*/
