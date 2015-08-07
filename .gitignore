@@ -7,4 +7,7 @@
 
 
 # Ignore gallery images.
-/assets/images/
+assets/images/**/*.png
+assets/images/**/*.jpg
+assets/images/**/*.sh
+
