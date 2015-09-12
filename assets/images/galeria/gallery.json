@@ -1,0 +1,250 @@
+[
+  {
+    "name" : "Alfa Romeo",
+    "path" : "alfaromeo",
+    "types" : [
+      {
+        "name": "145",
+        "path": "145"
+      },
+      {
+        "name": "147",
+        "path": "147"
+      },
+      {
+        "name": "156",
+        "path": "156"
+      },
+      {
+        "name": "159",
+        "path": "159"
+      }
+    ]
+  },
+  {
+    "name" : "Audi",
+    "path" : "audi",
+    "types" : [
+      {
+        "name": "a3",
+        "path": "a3"
+      },
+      {
+        "name": "a4",
+        "path": "a4"
+      },
+      {
+        "name": "audi",
+        "path": "audi"
+      }
+    ]
+  },
+  {
+    "name" : "BMW",
+    "path" : "bmw",
+    "types" : [
+      {
+        "name": "bmw",
+        "path": "bmw"
+      },
+      {
+        "name": "328",
+        "path": "328"
+      },
+      {
+        "name": "bmw3",
+        "path": "bmw3"
+      },
+      {
+        "name": "bmw5",
+        "path": "bmw5"
+      }
+    ]
+  },
+  {
+    "name" : "Chevrolet",
+    "path" : "chevrolet",
+    "types" : [
+      {
+        "name": "aveo",
+        "path": "aveo"
+      },
+      {
+        "name": "captivia",
+        "path": "captivia"
+      },
+      {
+        "name": "cruze",
+        "path": "cruze"
+      }
+    ]
+  },
+  {
+    "name" : "Chrysler",
+    "path" : "chrysler",
+    "types" : [
+      {
+        "name": "voyager",
+        "path": "voyager"
+      }
+    ]
+  },
+  {
+    "name" : "Citroen",
+    "path" : "citroen",
+    "types" : [
+      {
+        "name": "c1",
+        "path": "c1"
+      },
+      {
+        "name": "c3",
+        "path": "c3"
+      },
+      {
+        "name": "c4",
+        "path": "c4"
+      },
+      {
+        "name": "c5",
+        "path": "c5"
+      },
+      {
+        "name": "xsara",
+        "path": "xsara"
+      }
+    ]
+  },
+  {
+    "name" : "Dacia",
+    "path" : "dacia",
+    "types" : [
+      {
+        "name": "dokker",
+        "path": "dokker"
+      },
+      {
+        "name": "duster",
+        "path": "duster"
+      }
+    ]
+  },
+  {
+    "name" : "Daewoo",
+    "path" : "daewoo",
+    "types" : [
+      {
+        "name": "lanos",
+        "path": "lanos"
+      },
+      {
+        "name": "matiz",
+        "path": "matiz"
+      },
+      {
+        "name": "nubira",
+        "path": "nubira"
+      }
+    ]
+  },
+  {
+    "name" : "Dodge",
+    "path" : "dodge",
+    "types" : [
+      {
+        "name": "nitro",
+        "path": "nitro"
+      }
+    ]
+  },
+  {
+    "name" : "Fiat",
+    "path" : "fiat",
+    "types" : [
+      {
+        "name": "126p",
+        "path": "126p"
+      },
+      {
+        "name": "bravo-brava",
+        "path": "bravo-brava"
+      },
+      {
+        "name": "bravo-brava2",
+        "path": "bravo-brava2"
+      },
+      {
+        "name": "cinquecento-seicento",
+        "path": "cinquecento-seicento"
+      },
+      {
+        "name": "croma",
+        "path": "croma"
+      },
+      {
+        "name": "ducato",
+        "path": "ducato"
+      },
+      {
+        "name": "fiorino",
+        "path": "fiorino"
+      },
+      {
+        "name": "multipla",
+        "path": "multipla"
+      },
+      {
+        "name": "panda",
+        "path": "panda"
+      },
+      {
+        "name": "panda2",
+        "path": "panda2"
+      },
+      {
+        "name": "punto",
+        "path": "punto"
+      },
+      {
+        "name": "punto2",
+        "path": "punto2"
+      },
+      {
+        "name": "punto3",
+        "path": "punto3"
+      },
+      {
+        "name": "sedici",
+        "path": "sedici"
+      },
+      {
+        "name": "siena-palio",
+        "path": "siena-palio"
+      },
+      {
+        "name": "stilo",
+        "path": "stilo"
+      },
+      {
+        "name": "uno",
+        "path": "uno"
+      }
+    ]
+  },
+  {
+    "name" : "Ford",
+    "path" : "ford"
+  },
+  {
+    "name" : "Honda",
+    "path" : "honda"
+  },
+  {
+    "name" : "Hyundai",
+    "path" : "hyundai"
+  },
+  {
+    "name" : "Kia",
+    "path" : "kia"
+  }
+]

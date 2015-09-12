@@ -1,0 +1,16 @@
+<div id="gallery">
+  <!-- <div ui-view></div> -->
+  <!-- <span ng-repeat="gallery in galleryImages"> -->
+<!--     <div class="gallery-tile" ng-click="toggleTile($index)">
+      <img src='assets/images/galeria/alfaromeo/icon.png'>
+    </div> -->
+    <ul ng-repeat="gallery in galleryImages">
+      <li class="gallery-tile" ng-click="toggleTile($index)">
+        <img src='assets/images/galeria/alfaromeo/icon.png'>
+      </li>
+      <li class='gallery-types animate-if' ng-repeat="type in gallery.types" ng-click='' ng-if='gallery.show'>
+        {{ type.name }}
+      </li>
+    </ul>
+  <!-- </span> -->
+</div>

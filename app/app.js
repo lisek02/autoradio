@@ -1,38 +1,55 @@
 (function(){
-angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'googleMapModule', 'ngTouch'])
+angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'galleryModule', 'googleMapModule', 'ngTouch'])
 
 	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/");
 
 		$stateProvider
-			.state('home', {
+			.state('root', {
+				abstract: true,
+				templateUrl: 'app/views/root.html'
+			})
+			// .state('gallery', {
+			// 	abstract: true,
+			// 	templateUrl: 'app/views/gallery.html'
+			// })
+			// .state('gallery.list', {
+			// 	url: '/galeria',
+			// 	templateUrl: 'app/views/gallery-list.html'
+			// })
+			.state('gallery', {
+				url: '/galeria',
+				templateUrl: 'app/views/gallery.html',
+				controller: 'galleryController'
+			})
+			.state('root.home', {
 				url: '/'
 			})
-			.state('about', {
+			.state('root.about', {
 				url: '/about',
 				templateUrl: 'app/views/about.html'
 			})
-			.state('naglosnienie', {
+			.state('root.naglosnienie', {
 				url: '/naglosnienie',
 				templateUrl: 'app/views/naglosnienie.html'
 			})
-			.state('nawigacja', {
+			.state('root.nawigacja', {
 				url: '/nawigacja',
 				templateUrl: 'app/views/nawigacja.html'
 			})
-			.state('cbradio', {
+			.state('root.cbradio', {
 				url: '/cbradio',
 				templateUrl: 'app/views/cbradio.html'
 			})
-			.state('montaz', {
+			.state('root.montaz', {
 				url: '/montaz',
 				templateUrl: 'app/views/montaz.html'
 			})
-			.state('multimedia', {
+			.state('root.multimedia', {
 				url: '/multimedia',
 				templateUrl: 'app/views/multimedia.html'
 			})
-			.state('kamery', {
+			.state('root.kamery', {
 				url: '/kamery',
 				templateUrl: 'app/views/kamery.html'
 			})
@@ -51,6 +68,7 @@ angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'goo
 	})
 
 	.controller('mainController', ['$scope', '$location', function($scope, $location) {
+		this.tmp = 'mainCtrl'
 	}])
 
 	.directive('scrollToContact', function(){
