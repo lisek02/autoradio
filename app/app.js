@@ -1,5 +1,5 @@
 (function(){
-angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'galleryModule', 'googleMapModule', 'ngTouch'])
+angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'galleryModule', 'googleMapModule', 'ngTouch', 'ui.bootstrap'])
 
 	.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/");
@@ -21,6 +21,22 @@ angular.module('mainModule', ['ui.router', 'imagesModule', 'contactModule', 'gal
 				url: '/galeria',
 				templateUrl: 'app/views/gallery.html',
 				controller: 'galleryController'
+			})
+			.state('gallery.single', {
+	      params: { brand: '', model: '' },
+	      onEnter: function($modal, $state, $stateParams, $location) {
+	        return $modal.open({
+	      		controller: 'galleryItemController',
+	          templateUrl: 'app/views/gallery-single.html',
+	          windowClass: 'gallery-single'
+	        }).result.then(function(result) {
+	          if (result == 'gallery') {
+	            return $state.go('gallery');
+	          }
+	        }, function(result) {
+	          return $state.go('^');
+	        });
+	      }
 			})
 			.state('root.home', {
 				url: '/'
