@@ -1,0 +1,13 @@
+<div class='row'>
+  <div class='col-sm-4 col-sm-push-8'>
+    <span class='glyphicon glyphicon-remove close-x' ng-click='$dismiss()'></span>
+    <span ng-bind-html="galleryDescription"></span>
+  </div>
+  <div class='col-sm-8 col-sm-pull-4'>
+    <ul>
+      <li ng-repeat="image in galleryFiles">
+        <img ng-src="../assets/images/galeria/{{ brand }}/{{ model }}/{{image}}">
+      </li>
+    </ul>
+  </div>
+</div>

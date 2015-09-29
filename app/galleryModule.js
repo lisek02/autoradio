@@ -1,16 +1,24 @@
 (function(){
-angular.module('galleryModule', ['ui.router'])
+angular.module('galleryModule', ['ui.router', 'ngSanitize'])
   .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   }])
 
   .service('GalleryServ', ['$http', function($http) {
-    this.getImages = function(path) {
+    this.getGalleryStructure = function(path) {
       return $http.get(path)
+    }
+
+    this.getImages = function(brand, model) {
+      return $http({
+        method : 'GET',
+        url : 'http://autoradio.poznan.pl/app/gallery_images.php',
+        params : { brand: brand, model: model }
+      })
     }
   }])
 
   .controller('galleryController', ['$scope', '$state', 'GalleryServ', function($scope, $state, GalleryServ) {
-    GalleryServ.getImages("assets/images/galeria/gallery.json").then(function(response) {
+    GalleryServ.getGalleryStructure("assets/images/galeria/gallery.json").then(function(response) {
       $scope.galleryImages = response.data;
     })
 
@@ -37,8 +45,13 @@ angular.module('galleryModule', ['ui.router'])
   }])
 
   .controller('galleryItemController', ['$scope', '$state', '$stateParams', 'GalleryServ', function($scope, $state, $stateParams, GalleryServ) {
-    $scope.brand = $stateParams.brand;
-    $scope.model = $stateParams.model;
+    $scope.brand = $stateParams.brand.toLowerCase();
+    $scope.model = $stateParams.model.toLowerCase();
+
+    GalleryServ.getImages($scope.brand, $scope.model).then(function(response) {
+      $scope.galleryFiles = response.data.files;
+      $scope.galleryDescription = response.data.description;
+    })
   }])
 
 

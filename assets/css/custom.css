@@ -615,8 +615,32 @@ li.gallery-types:hover {
 }
 
 /*modal*/
+@media (min-width: 1200px) {
+	.modal-dialog {
+		width: 900px;
+	}
+}
+
 .modal-content {
 	background-color: rgba(9, 18, 24, 0.88);
-	height: 900px;
-	padding: 15px;
+	padding: 25px;
+}
+
+.modal-content ul {
+	padding: 0px;
+}
+
+.modal-content li {
+	margin: 20px 0;
+}
+
+.modal-content img {
+	width: 100%;
+}
+
+.close-x {
+	color: #ec8016;
+	cursor: pointer;
+	float: right;
+	right: -15px;
 }
