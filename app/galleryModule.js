@@ -8,6 +8,13 @@ angular.module('galleryModule', ['ui.router', 'ngSanitize'])
       return $http.get(path)
     }
 
+    this.getList = function() {
+      return $http({
+        method : 'GET',
+        url : 'http://autoradio.poznan.pl/app/gallery_list.php',
+      })
+    }
+
     this.getImages = function(brand, model) {
       return $http({
         method : 'GET',
@@ -18,13 +25,17 @@ angular.module('galleryModule', ['ui.router', 'ngSanitize'])
   }])
 
   .controller('galleryController', ['$scope', '$state', 'GalleryServ', function($scope, $state, GalleryServ) {
-    GalleryServ.getGalleryStructure("assets/images/galeria/gallery.json").then(function(response) {
+    // GalleryServ.getGalleryStructure("assets/images/galeria/gallery.json").then(function(response) {
+    //   $scope.galleryImages = response.data;
+    // })
+    GalleryServ.getList().then(function(response) {
       $scope.galleryImages = response.data;
     })
 
     _.each($scope.galleryImages, function(image) {
       image.show = true;
     })
+
 
     $scope.toggleTile = function(index) {
       if ($scope.galleryImages[index].show) {
@@ -53,6 +64,5 @@ angular.module('galleryModule', ['ui.router', 'ngSanitize'])
       $scope.galleryDescription = response.data.description;
     })
   }])
-
 
 })();
